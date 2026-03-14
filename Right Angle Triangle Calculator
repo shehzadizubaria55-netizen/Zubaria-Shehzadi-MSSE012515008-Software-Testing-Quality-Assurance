@@ -1,0 +1,28 @@
+public class RightAngleTriangle {
+    // Pass 0 for the unknown side
+    public static double calculate(double a, double b, double c) {
+
+        if (a > 0 && b > 0 && c <= 0) {          // Decision 1: find hypotenuse
+            double hyp = Math.sqrt(a*a + b*b);
+            return hyp;
+
+        } else if (a > 0 && c > 0 && b <= 0) {   // Decision 2: find leg b
+            if (c <= a) {                         // Decision 3: validate
+                System.out.println("Error: c must > a.");
+                return -1;
+            }
+            return Math.sqrt(c*c - a*a);
+
+        } else if (b > 0 && c > 0 && a <= 0) {   // Decision 4: find leg a
+            if (c <= b) {                         // Decision 5: validate
+                System.out.println("Error: c must > b.");
+                return -1;
+            }
+            return Math.sqrt(c*c - b*b);
+
+        } else {                                  // Path 4: invalid combo
+            System.out.println("Error: Provide exactly two sides.");
+            return -1;
+        }
+    }
+}
