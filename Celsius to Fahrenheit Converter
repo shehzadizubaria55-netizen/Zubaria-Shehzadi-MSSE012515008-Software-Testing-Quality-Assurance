@@ -1,0 +1,12 @@
+public class CelsiusToFahrenheit {
+
+    public static double convert(double celsius) {
+        // Decision Point 1
+        if (celsius < -273.15) {                         // ← branch
+            System.out.println("Error: Below absolute zero.");
+            return Double.NaN;
+        }
+        double fahrenheit = (celsius * 9.0 / 5.0) + 32;
+        return fahrenheit;
+    }
+}
