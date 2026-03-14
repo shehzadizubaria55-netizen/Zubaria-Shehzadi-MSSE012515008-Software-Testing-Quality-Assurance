@@ -1,0 +1,23 @@
+public class AreaFinder {
+
+    public static double findArea(String shape, double p1, double p2) {
+        double area;
+        if (shape.equalsIgnoreCase("circle")) {          // Decision 1
+            if (p1 <= 0) { /* error */ return -1; }
+            area = Math.PI * p1 * p1;
+        } else if (shape.equalsIgnoreCase("triangle")) { // Decision 2
+            if (p1 <= 0 || p2 <= 0) { /* error */ return -1; }
+            area = 0.5 * p1 * p2;
+        } else if (shape.equalsIgnoreCase("rectangle")) {// Decision 3
+            if (p1 <= 0 || p2 <= 0) { /* error */ return -1; }
+            area = p1 * p2;
+        } else if (shape.equalsIgnoreCase("square")) {   // Decision 4
+            if (p1 <= 0) { /* error */ return -1; }
+            area = p1 * p1;
+        } else {                                          // Path 5
+            System.out.println("Error: Unknown shape.");
+            return -1;
+        }
+        return area;
+    }
+}
